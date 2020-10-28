@@ -967,5 +967,51 @@ Requests/sec:  10793.05
 Transfer/sec:      1.29MB
 
 ```
+---
+- java -jar -Xms2048m -Xmx2048m gateway-server-0.0.1-SNAPSHOT.jar
 
+
+```
+➜  ~ wrk -t8 -c40 -d60s http://localhost:8088/api/hello
+Running 1m test @ http://localhost:8088/api/hello
+  8 threads and 40 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    16.78ms   44.93ms 517.19ms   91.40%
+    Req/Sec     2.02k     1.08k   10.29k    62.38%
+  958889 requests in 1.00m, 114.48MB read
+Requests/sec:  15955.69
+Transfer/sec:      1.90MB
+```
+
+---
+- java -jar -XX:+UseConcMarkSweepGC -Xms2048m -Xmx2048m gateway-server-0.0.1-SNAPSHOT.jar
+
+```
+➜  ~ wrk -t8 -c40 -d60s http://localhost:8088/api/hello
+Running 1m test @ http://localhost:8088/api/hello
+  8 threads and 40 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    14.08ms   33.65ms 530.25ms   90.57%
+    Req/Sec     1.72k   739.46     3.97k    65.26%
+  818730 requests in 1.00m, 97.75MB read
+Requests/sec:  13623.21
+Transfer/sec:      1.63MB
+```
+
+---
+- java -jar -XX:+UseG1GC -Xms2048m -Xmx2048m gateway-server-0.0.1-SNAPSHOT.jar
+- 
+```
+➜  ~ wrk -t8 -c40 -d60s http://localhost:8088/api/hello
+Running 1m test @ http://localhost:8088/api/hello
+  8 threads and 40 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    15.52ms   39.83ms 583.64ms   91.04%
+    Req/Sec     1.82k     0.90k    8.77k    61.05%
+  863780 requests in 1.00m, 103.13MB read
+Requests/sec:  14381.71
+Transfer/sec:      1.72MB
+```
+
+---
 
