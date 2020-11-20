@@ -1,13 +1,13 @@
-package com.ian.week5.homework;
+package com.ian.week5.homework.beanload;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
-public class HomeWork {
+public class BeanLoad {
 
-    HomeWork() {
-        System.out.println("HomeWork Construct.");
+    BeanLoad() {
+        System.out.println("BeanLoad Construct.");
     }
 
     @Bean

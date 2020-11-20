@@ -2,5 +2,5 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="MyBean2" class="com.ian.week5.homework.HomeWork.MyBean2"></bean>
+    <bean id="MyBean2" class="com.ian.week5.homework.LoadBeans.MyBean2"></bean>
 </beans>
