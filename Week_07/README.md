@@ -1,7 +1,7 @@
 学习笔记
 # 2020年12月02日
 - 按自己设计的表结构，插入 100 万订单模拟数据，测试不同方式的插入效率
-
+- 读写分离 - 动态切换数据源版本 1.0
 > [https://github.com/whIan/JAVA-000/blob/main/Week_07/src/test/java/com/ian/homework/HomeworkApplicationTests.java](https://github.com/whIan/JAVA-000/blob/main/Week_07/src/test/java/com/ian/homework/HomeworkApplicationTests.java)
 
 ```
