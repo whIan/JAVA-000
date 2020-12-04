@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ian.homework.initdata.dao.TGoodsDao">
-  <resultMap id="BaseResultMap" type="com.ian.homework.initdata.model.TGoods">
+<mapper namespace="com.ian.homework.goods.dao.TGoodsDao">
+  <resultMap id="BaseResultMap" type="com.ian.homework.goods.model.TGoods">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="goods_name" jdbcType="VARCHAR" property="goodsName" />
     <result column="goods_type" jdbcType="VARCHAR" property="goodsType" />
@@ -20,11 +20,14 @@
     from t_goods
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select * from t_goods
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from t_goods
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ian.homework.initdata.model.TGoods" useGeneratedKeys="true">
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.ian.homework.goods.model.TGoods" useGeneratedKeys="true">
     insert into t_goods (goods_name, goods_type, goods_detail, 
       create_time, create_by, update_time, 
       update_by)
@@ -32,7 +35,7 @@
       #{createTime,jdbcType=INTEGER}, #{createBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=INTEGER}, 
       #{updateBy,jdbcType=VARCHAR})
   </insert>
-  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="com.ian.homework.initdata.model.TGoods" useGeneratedKeys="true">
+  <insert id="batchInsert" keyColumn="id" keyProperty="id" parameterType="com.ian.homework.goods.model.TGoods" useGeneratedKeys="true">
     insert into t_goods (goods_name, goods_type, goods_detail,
       create_time, create_by, update_time,
       update_by)
@@ -43,7 +46,7 @@
       #{item.updateBy,jdbcType=VARCHAR})
     </foreach>
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ian.homework.initdata.model.TGoods" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.ian.homework.goods.model.TGoods" useGeneratedKeys="true">
     insert into t_goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="goodsName != null">
@@ -92,7 +95,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.ian.homework.initdata.model.TGoods">
+  <update id="updateByPrimaryKeySelective" parameterType="com.ian.homework.goods.model.TGoods">
     update t_goods
     <set>
       <if test="goodsName != null">
@@ -119,7 +122,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.ian.homework.initdata.model.TGoods">
+  <update id="updateByPrimaryKey" parameterType="com.ian.homework.goods.model.TGoods">
     update t_goods
     set goods_name = #{goodsName,jdbcType=VARCHAR},
       goods_type = #{goodsType,jdbcType=VARCHAR},

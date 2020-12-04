@@ -1,4 +1,4 @@
-package com.ian.homework.initdata.model;
+package com.ian.homework.goods.model;
 
 import java.io.Serializable;
 

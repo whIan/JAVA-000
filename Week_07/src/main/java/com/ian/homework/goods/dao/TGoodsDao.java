@@ -1,12 +1,13 @@
-package com.ian.homework.initdata.dao.slave;
+package com.ian.homework.goods.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ian.homework.initdata.model.TGoods;
+import com.ian.homework.annotation.DataSource;
+import com.ian.homework.goods.model.TGoods;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
-public interface TGoodsSlaveDao extends BaseMapper<TGoods> {
+public interface TGoodsDao extends BaseMapper<TGoods> {
     int deleteByPrimaryKey(Integer id);
 
     int insert(TGoods record);
@@ -22,4 +23,8 @@ public interface TGoodsSlaveDao extends BaseMapper<TGoods> {
     int batchInsert(@Param("list") List<TGoods> records);
 
     int truncateTable(String tableName);
+
+    @DataSource("slave")
+    List<TGoods> selectAll();
+
 }

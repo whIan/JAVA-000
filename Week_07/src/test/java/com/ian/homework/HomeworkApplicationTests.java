@@ -1,12 +1,14 @@
 package com.ian.homework;
 
-import com.ian.homework.initdata.dao.TGoodsDao;
-import com.ian.homework.initdata.dao.slave.TGoodsSlaveDao;
-import com.ian.homework.initdata.model.TGoods;
+import com.ian.homework.annotation.DataSource;
+import com.ian.homework.goods.dao.TGoodsDao;
+import com.ian.homework.goods.model.TGoods;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,11 +17,8 @@ import java.util.List;
 @SpringBootTest
 class HomeworkApplicationTests {
 
-    //@Autowired
-    private TGoodsDao goodsDao;
-
     @Autowired
-    private TGoodsSlaveDao TGoodsSlaveDao;
+    private TGoodsDao goodsDao;
 
     @Test
     void contextLoads() {
@@ -27,11 +26,11 @@ class HomeworkApplicationTests {
     }
 
     @Test
-    public void testDataSource() {
-        //System.out.println(goodsDao.selectList(null));
-        System.out.println(TGoodsSlaveDao.selectList(null));
-    }
+    public void testDynamicDataSource() {
+        System.out.println(goodsDao.selectList(null));
+        System.out.println(goodsDao.selectAll());
 
+    }
 
     @Test
     public void testInsert() {
