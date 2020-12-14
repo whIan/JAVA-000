@@ -34,6 +34,7 @@ public final class Rpcfx {
 
         private final Class<?> serviceClass;
         private final String url;
+
         public <T> RpcfxInvocationHandler(Class<T> serviceClass, String url) {
             this.serviceClass = serviceClass;
             this.url = url;
@@ -60,7 +61,7 @@ public final class Rpcfx {
 
         private RpcfxResponse post(RpcfxRequest req, String url) throws IOException {
             String reqJson = JSON.toJSONString(req);
-            System.out.println("req json: "+reqJson);
+            System.out.println("req json: " + reqJson);
 
             // 1.可以复用client
             // 2.尝试使用httpclient或者netty client
@@ -70,7 +71,7 @@ public final class Rpcfx {
                     .post(RequestBody.create(JSONTYPE, reqJson))
                     .build();
             String respJson = client.newCall(request).execute().body().string();
-            System.out.println("resp json: "+respJson);
+            System.out.println("resp json: " + respJson);
             return JSON.parseObject(respJson, RpcfxResponse.class);
         }
     }

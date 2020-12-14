@@ -2,7 +2,8 @@ package io.kimmking.dubbo.demo.api;
 
 public class User implements java.io.Serializable {
 
-    public User(){}
+    public User() {
+    }
 
     public User(int id, String name) {
         this.id = id;

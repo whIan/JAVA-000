@@ -5,10 +5,10 @@ import lombok.Data;
 @Data
 public class RpcfxRequest {
 
-  private String serviceClass;
+    private String serviceClass;
 
-  private String method;
+    private String method;
 
-  private Object[] params;
+    private Object[] params;
 
 }
